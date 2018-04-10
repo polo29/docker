@@ -1,0 +1,53 @@
+#console 1
+docker run -ti debian
+root@f6fbc0bc20d0:/# 
+exit
+docker run -ti debian
+
+sur une autre concole du raspi
+#console 2
+docker ps
+root@raspberrypi:~/raspberrypi# docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+f6fbc0bc20d0        debian              "bash"              6 minutes ago       Up 6 minutes                            reverent_archimedes
+
+si exit sur console 1 => console 2
+root@raspberrypi:~/raspberrypi# docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+root@raspberrypi:~/raspberrypi# 
+
+#console 1
+docker run -ti debian
+root@583fe9cb1220:/# 
+touch /test.txt
+
+#console 2
+root@raspberrypi:~/raspberrypi# docker diff 583
+A /test.txt
+
+Sauvegarder les differences dans debiantest 
+root@raspberrypi:~/raspberrypi# docker commit 583 debiantest
+sha256:9e0c9acc7d09600375e27c3a842bfe3b5eba80ee56484b8acc82ece5947add45
+root@raspberrypi:~/raspberrypi# docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+debiantest          latest              9e0c9acc7d09        20 seconds ago      94.3MB
+debian              latest              f4eb764ab34f        3 weeks ago         94.3MB
+
+#console 1
+exit
+root@raspberrypi:~/docker/base_docker# docker run -ti debiantest
+root@756f71c0cb0b:/# ls
+bin   dev  home  media	opt   root  sbin  sys	    tmp  var
+boot  etc  lib	 mnt	proc  run   srv   test.txt  usr      (on a bien test.txt sauvegardé dans cette nouvelle image)
+
+exporter la nouvelle image (ex)
+
+docker save debiantest > /var/tmp/debiantest.tar
+root@raspberrypi:/var/tmp# ls -al|grep debiantest
+-rw-r--r--  1 root root 99191296 avril 10 05:04 debiantest.tar
+
+#DOCKERFILE
+
+
+
+
