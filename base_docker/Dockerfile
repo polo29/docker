@@ -1,4 +1,5 @@
-# https://www.grafikart.fr/tutoriels/docker/dockerfile-636
+ https://www.grafikart.fr/tutoriels/docker/dockerfile-636
+ https://hub.docker.com/
 # FROM permet de définir depuis quelle base votre image ve être créée
 # MAINTAINER permet de définir l'auteur de l'image et s'écrit de la manière suivante Nom <email>
 # RUN permet de lancer une commande, mais aura aussi pour effet de créer une image intermédiaire.
