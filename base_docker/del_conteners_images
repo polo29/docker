@@ -1,0 +1,17 @@
+Pour supprimer un container, exécutez ceci
+
+sudo docker rm id_container
+
+Si vous souhaitez tous les supprimer,
+
+sudo docker rm $(docker ps -a -q)
+
+Pour ce qui est des images, la commande est assez similaire, mais avec rmi
+
+sudo docker rmi id_image
+
+Pour toutes les supprimer,
+
+sudo docker rmi $(docker images -q)
+
+
