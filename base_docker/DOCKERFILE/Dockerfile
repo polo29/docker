@@ -12,9 +12,10 @@ ADD script.sh /usr/bin/script.sh
 RUN chmod +x /usr/bin/script.sh
 # EXPOSE permet d'exposer un port du container vers l'extérieur
 EXPOSE 80
-# CMD détermine la commande qui sera exécutée lorsque le container démarrera
-CMD ["script.sh"]
 # ENTRYPOINT permet d'ajouter une commande qui sera exécutée par défaut, et ce, 
+ENTRYPOINT ["script.sh"]
+# CMD détermine la commande qui sera exécutée lorsque le container démarrera
+CMD ["bash"]
 # même si on choisit d'exécuter une commande différente de la commande standard
 # WORKDIR permet de définir le dossier de travail pour toutes les autres commandes 
 #(par exemple RUN, CMD, ENTRYPOINT et ADD)
@@ -22,3 +23,4 @@ CMD ["script.sh"]
 # au paramètre de la commande run --env <key>=<value>.
 # VOLUMES permet de créer un point de montage qui permettra de persister les données. 
 # On pourra alors choisir de monter ce volume dans un dossier spécifique en utilisant la commande `run -v :
+VOLUME /volume/data

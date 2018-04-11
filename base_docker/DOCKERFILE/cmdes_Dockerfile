@@ -1,4 +1,6 @@
-docker build -t marco:1 .       OK -t = tag    :1 = version
-docker run --rm -it marc:1      OK --rm cont efface apres exécution
-                                   -it (pour acces au conteneur
-
+docker build -t marco:1 .                OK -t = tag    :1 = version
+docker run --rm -it maroc:1              OK --rm cont efface apres exécution
+                                            -it (pour acces au conteneur
+Pour le port eventuel de sortie en http =>
+docker run --rm -it -p 80:80 marco:1     OK
+On peut rajouter l' option -d pour un container en continu ...
