@@ -1,8 +1,9 @@
- https://www.grafikart.fr/tutoriels/docker/dockerfile-636
- https://hub.docker.com/
 # FROM permet de définir depuis quelle base votre image ve être créée
-# MAINTAINER permet de définir l'auteur de l'image et s'écrit de la manière suivante Nom <email>
+FROM debian
+#MAINTAINER permet de définir l'auteur de l'image et s'écrit de la manière suivante Nom <email>
+MAINTAINER Marc ESCARMANT
 # RUN permet de lancer une commande, mais aura aussi pour effet de créer une image intermédiaire.
+RUN apt-get update
 # ADD permet de copier un fichier depuis la machine hôte ou depuis une URL
 # EXPOSE permet d'exposer un port du container vers l'extérieur
 # CMD détermine la commande qui sera exécutée lorsque le container démarrera

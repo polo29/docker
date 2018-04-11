@@ -1,3 +1,5 @@
+https://www.grafikart.fr/tutoriels/docker/docker-intro-634
+https://www.grafikart.fr/tutoriels/docker/dockerfile-636
 #console 1
 docker run -ti debian
 root@f6fbc0bc20d0:/# 
