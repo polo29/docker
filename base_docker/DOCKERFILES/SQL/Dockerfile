@@ -8,15 +8,15 @@ RUN apt-get -y install vim
 RUN apt-get -y install mariadb-server
 # ADD permet de copier un fichier depuis la machine hôte ou depuis une URL
 #~ADD http://www.tito.com/script.sh ou /chemin/script.sh ou script.sh  /chemin/destination
-ADD script.sh /usr/bin/script.sh
-RUN chmod +x /usr/bin/script.sh
+ADD marcotest.sh /usr/bin/marcotest.sh
+RUN chmod +x /usr/bin/marcotest.sh
 # EXPOSE permet d'exposer un port du container vers l'extérieur
 EXPOSE 3306 
 # ENTRYPOINT permet d'ajouter une commande qui sera exécutée par défaut, et ce, 
-ENTRYPOINT ["script.sh"]
+#ENTRYPOINT ["marcotest.sh"] #Apres execution ça sort du contener !!!!
 # CMD détermine la commande qui sera exécutée lorsque le container démarrera
 #CMD ["bash"]
-# même si on choisit d'exécuter une commande différente de la commande standard
+# même si on choisit d'exécuter un #Apres execution ça sort du contener !!!!e commande différente de la commande standard
 
 #VOLUME /volume/data
 ###
